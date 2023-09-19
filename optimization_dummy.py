@@ -54,6 +54,77 @@ def main():
 
     # start writing your own code from here
 
+    # constants
+    POP_SIZE = 10
+
+    # our own functions
+    def new_pop(pop_size, n_vars):
+        new_population = np.random.uniform(-1.0, 1.0, (pop_size, n_vars))
+        return new_population
+
+    def discrete_crossover(parent_1, parent_2):
+        offspring_1 = []
+        offspring_2 = []
+        for i in range(len(parent_1)):
+            if np.random.uniform() > 0.5:
+                offspring_1.append(parent_1[i])
+                offspring_2.append(parent_2[i])
+            else:
+                offspring_1.append(parent_2[i])
+                offspring_2.append(parent_1[i])
+
+        return offspring_1, offspring_2
+
+    def intermediate_crossover (parent_1, parent_2):
+        a = np.random.uniform()
+        offspring_1 = []
+        offspring_2 = []
+        for i in range(len(parent_1)):
+            offspring_1_new_value = a * parent_1[i] + (1 - a) * parent_2 [i]
+            offspring_1.append(offspring_1_new_value)
+
+            offspring_2_new_value = (1 - a) * parent_1[i] + a * parent_2 [i]
+            offspring_2.append(offspring_2_new_value)
+
+        return offspring_1, offspring_2
+
+
+
+    #this is where our working code starts
+    #create new population
+    population = new_pop(POP_SIZE, n_vars)
+    generation = 0
+
+    #evaluate population (probably also put in a documentation and termination mechanism in here)
+
+    #selection
+    # just my thoughts but feel free to delete: maybe its best to limit the amount selected as a part of POP_SIZE
+    # for example 0.5 of POP_SIZE so the generations won't keep growing in case of more offspring
+
+    #select parents
+
+
+
+    #some test values I used
+    #parent_1 = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+    #parent_2 = [8.0, 9.0, 6.0, 7.0, 3.0, 4.0, 5.0, 1.0, 2.0]
+
+    #crossover (use to create offspring)
+
+    # discrete crossover
+    #offspring_1, offspring_2 = discrete_crossover(parent_1, parent_2)
+
+    # intermediate crossover
+    offspring_1, offspring_2 = intermediate_crossover(parent_1, parent_2)
+
+    #print(parent_1)
+    #print(parent_2)
+    #print(offspring_1)
+    #print(offspring_2)
+
+    #mutation (use to create offspring)
+
+    #replace parent generation with new generation
 
 
 if __name__ == '__main__':
