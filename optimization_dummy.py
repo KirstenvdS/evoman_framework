@@ -98,8 +98,6 @@ def main():
     #evaluate population (probably also put in a documentation and termination mechanism in here)
 
     #selection
-    # just my thoughts but feel free to delete: maybe its best to limit the amount selected as a part of POP_SIZE
-    # for example 0.5 of POP_SIZE so the generations won't keep growing in case of more offspring
 
     #select parents
 
